@@ -1,5 +1,4 @@
 //BEACH DESTINATION
-
 const place1= "Phi Phi islands"
 const place2= "Dominican Republic"
 const place3= "Maldives islands"
@@ -8,9 +7,7 @@ const pricePlace1= 434284;
 const pricePlace2= 196318;
 const pricePlace3= 802716;
 
-
 //SNOW DESTINATION
-
 const place4= "California"
 const place5= "Denver"
 const place6= "Utah"
@@ -20,74 +17,101 @@ const pricePlace5= 325242;
 const pricePlace6= 802716;
 
 //URBAN DESTINATION
-
 const place7= "New york"
 const place8= "Dubai"
-const place9= "Londres"
+const place9= "London"
 
 const pricePlace7= 227000;
 const pricePlace8= 348751;
 const pricePlace9= 238221;
 
-
+//PRINCIPAL FUNCTION
 function buyFlight(day,destination,hour){
 
 let dayOfFlight = day;
 let DestinationFlight = destination;
 let flightHour=hour;
 let price = 0;
+let initialPeople=1;
+let peopleAmount= Number(prompt("How many people will travel with you?, please type the amount"));
+peopleAmount=peopleAmount+initialPeople;
 
+//OBJECT 
+
+class person {
+    constructor(name,surname,idNumber,email){
+      this.name = name;
+      this.surname=surname;
+      this.idNumber=idNumber;
+      this.email=email;
+    }
+ }
+ let i=0;
+
+ //ARRAY
+ let peoplePack=[];
+ 
+ while(i!=peopleAmount){
+ peoplePack.push(new person (prompt("Please insert full name"),prompt("Please type the surname"),prompt("Id number"),prompt("Email")));
+ i++;
+ }
+
+ console.log (peoplePack);
+      
 
 switch(destination){
 
     case "Phi Phi islands":
-        alert("conformed with the place selected, the price will be: $"+ pricePlace1);
-         price = pricePlace1;
+        alert("conformed with the place selected and with the people amount, the price will be: $"+ pricePlace1*peopleAmount);
+         price = pricePlace1*peopleAmount;
          break;
     case "Dominican Republic":
-        alert("conformed with the place selected, the price will be: $"+pricePlace2);
-         price = pricePlace2;
+        alert("conformed with the place selected and with the people amount, the price will be: $"+pricePlace2*peopleAmount);
+         price = pricePlace2*peopleAmount;
          break;
     case "Maldives islands":
-        alert("conformed with the place selected, the price will be: $"+pricePlace3);
-         price = pricePlace3;
+        alert("conformed with the place selected and with the people amount, the price will be: $"+pricePlace3*peopleAmount);
+         price = pricePlace3*peopleAmount;
          break;
     case "California":
-        alert("conformed with the place selected, the price will be: $"+pricePlace4);
-         price = pricePlace4;
+        alert("conformed with the place selected and with the people amount, the price will be: $"+pricePlace4*peopleAmount);
+         price = pricePlace4*peopleAmount;
          break;
     case "Denver":
-        alert("conformed with the place selected, the price will be: $"+pricePlace5);
-         price = pricePlace5;
+        alert("conformed with the place selected and with the people amount, the price will be: $"+pricePlace5*peopleAmount);
+         price = pricePlace5*peopleAmount;
          break;
     case "Utah":
-        alert("conformed with the place selected, the price will be: $"+pricePlace6);
-         price = pricePlace6;
+        alert("conformed with the place selected and with the people amount, the price will be: $"+pricePlace6*peopleAmount);
+         price = pricePlace6*peopleAmount;
          break;
     case "New york":
-        alert("conformed with the place selected, the price will be: $"+pricePlace7);
-         price = pricePlace7;
+        alert("conformed with the place selected and with the people amount, the price will be: $"+pricePlace7*peopleAmount);
+         price = pricePlace7*peopleAmount;
          break;
     case "Dubai":
-        alert("conformed with the place selected, the price will be: $"+pricePlace8);
-         price = pricePlace8;
+        alert("conformed with the place selected and with the people amount, the price will be: $"+pricePlace8*peopleAmount);
+         price = pricePlace8*peopleAmount;
          break;
-    case "Londres":
-        alert("conformed with the place selected, the price will be: $"+pricePlace9);
-         price = pricePlace9;
+    case "London":
+        alert("conformed with the place selected and with the people amount, the price will be: $"+pricePlace9*peopleAmount);
+         price = pricePlace9*peopleAmount;
          break;
 }
 
-let name = prompt("Please insert your name and surname");
-let idNumber = Number(prompt("Type your ID number"));
-let email = prompt("Type your email please");
-alert("You have your flight ticket for: " + DestinationFlight+ "\n"+ "Travels day: "+dayOfFlight+"\n"+"Time: "+flightHour+"hs"+ "\n" + "Name:"+name+ "\n"+"Id number: " +idNumber+ "\n" +"Charges: $"+price+"\n"+ "On the next minutes you will receive an email with all the info of your travel on the email that you provided: "+email)
+if(peopleAmount==1){
+alert("You have your flight ticket for: " + DestinationFlight+ "\n"+ "Travels day: "+dayOfFlight+"\n"+"Time: "+flightHour+ "\n" + "Person/s info: " + peoplePack[0].name +" "+ peoplePack[0].surname +"\n"+ "Email/s: "+peoplePack[0].email+",you will receive all the info on these emails"+ "\n"+ "Charges: $" + price);
+}
+     else if (peopleAmount==2){
+    alert("You have your flight ticket for: " + DestinationFlight+ "\n"+ "Travels day: "+dayOfFlight+"\n"+"Time: "+flightHour+ "\n" + "Person/s info: " + peoplePack[0].name +" "+ peoplePack[0].surname +", " +peoplePack[1].name +" "+ peoplePack[1].surname +"\n"+ "Email/s: "+peoplePack[0].email+", "+peoplePack[1].email+",you will receive all the info on these emails"+ "\n"+ "Charges: $" + price);
+    }
+        else if (peopleAmount==3){
+        alert("You have your flight ticket for: " + DestinationFlight+ "\n"+ "Travels day: "+dayOfFlight+"\n"+"Time: "+flightHour+ "\n" + "Person/s info: " + peoplePack[0].name +" "+ peoplePack[0].surname +", " +peoplePack[1].name +" "+ peoplePack[1].surname+", " +peoplePack[2].name +" "+ peoplePack[2].surname +"\n"+ "Email/s: "+peoplePack[0].email+", "+peoplePack[1].email+", "+peoplePack[2].email+",you will receive all the info on these emails"+ "\n"+ "Charges: $" + price);
+        }
 }
 
 
 buyFlight(travelDayOpcion(),intoDestination(),hour());
-
-
 
 
 
@@ -118,7 +142,7 @@ function travelDayOpcion(){
 
 
 
-   let option = Number(prompt("Please enter the day that you would like to travel : \n1."+ option1+"\n2. " + option2 + "\n3. " + option3 + "\n4. " + option4 + "\n5. " + option5 + "\n6. " + option6 +"\n7."+option7));
+   let option = Number(prompt("Interactive simulator, flight agency, (ATTENTION: the maximum of passengers that you can upload besides you= 2)"+"\n"+"Please enter the day that you would like to travel : \n1."+ option1+"\n2. " + option2 + "\n3. " + option3 + "\n4. " + option4 + "\n5. " + option5 + "\n6. " + option6 +"\n7."+option7));
 
    switch(option){
 
@@ -244,14 +268,25 @@ function intoDestination (){
         }
 }
 
-function hour(){
+function hour(){   //function to find flight hour
+let selection = prompt("Do you want your flight in the morning or afternoon?, please select your choice: \n Morning: type AM"+"\n Afernoon: type PM" ).toUpperCase();
 
-let time = prompt("Please type the time at you can travel,(example format: 22:00)");
-return time;
+switch(selection){
+    case "AM": selection = "AM";
+    
+   
+    case "PM": selection = "PM";
+    
 }
 
+let time=-1;//variable time with initial value -1  
 
-
+while(time<=0 || time>=12){
+time= Number(prompt("Type at what time do you want your flight,(only the number in the 12hs format)"));
+}
+let fullTime = time + selection;
+return fullTime;
+}
 
 
 
